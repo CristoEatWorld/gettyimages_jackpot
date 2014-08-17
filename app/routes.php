@@ -25,6 +25,9 @@ Route::get('/', ['before' => 'guest', function(){
 Route::get('/hidden', ['before' => 'auth', function(){
     return View::make('hidden');
 }]);
+Route::get('/game', ['before' => 'guest', function(){
+    return View::make('game');
+}]);
 //Procesa el formulario e identifica al usuario
 Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest']);
 //Desconecta al usuario

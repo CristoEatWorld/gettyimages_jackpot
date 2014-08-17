@@ -5,6 +5,9 @@
 @stop
  
 @section('content')
+
+    {{HTML::link('game','Juego Jackpot',array('target'=>'_blank'))}}
+
     <h2>Identificarse</h2>
  
     @if(Session::get('msg'))
@@ -12,8 +15,11 @@
     @endif
  
     {{ Form::open(array('url' => '/login', 'method' => 'POST')) }}
-        E-mail <input type="text" name="email" /> <br />
-        Contraseña <input type="password" name="password" /> <br />
-        <input type="submit" value="Ingresar" />
+        <div class="col-md-6 col-md-offset-3">
+            <div class="input-group input-group-lg">
+            <input type="text" name="email" class="form-control" placeholder="E-mail">
+            <input type="password" name="password" class="form-control" placeholder="Contraseña">  
+            <input type="submit" value="Ingresar" />
+        </div>
     {{ Form::close() }}
 @stop
