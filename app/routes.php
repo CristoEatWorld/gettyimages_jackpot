@@ -30,4 +30,4 @@ Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest'])
 //Desconecta al usuario
 Route::get('/logout', ['uses' => 'AuthController@doLogout', 'before' => 'auth']);
 
-Route::resource('personas', 'PersonasController');
+//Route::resource('personas', 'PersonasController');
