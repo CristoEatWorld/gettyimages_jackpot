@@ -1,0 +1,1 @@
+C:\xampp\htdocs\gettyimages_jackpot\app/views/personas/show.blade.php
