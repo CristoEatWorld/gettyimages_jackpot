@@ -25,12 +25,22 @@ Route::get('/', ['before' => 'guest', function(){
 Route::get('/hidden', ['before' => 'auth', function(){
     return View::make('hidden');
 }]);
-Route::get('/game', ['before' => 'guest', function(){
+Route::get('/game', function(){
     return View::make('game');
-}]);
+});
 //Procesa el formulario e identifica al usuario
 Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest']);
 //Desconecta al usuario
 Route::get('/logout', ['uses' => 'AuthController@doLogout', 'before' => 'auth']);
 
-Route::resource('personas', 'PersonasController');
+//Route::resource('personas', 'PersonasController');
+
+Route::group(array('before'=>'auth'), function() {   
+    Route::resource('personas', 'PersonasController',
+                array('only' => array('index','show','create', 'update', 'destroy')));
+});
+
+Route::group(array('before'=>'guest'), function() {   
+    Route::resource('personas', 'PersonasController',
+                array('only' => array('store')));
+});
