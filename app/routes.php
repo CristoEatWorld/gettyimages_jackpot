@@ -31,6 +31,10 @@ Route::get('/game', function(){
 
 Route::post('personas/store', array('uses' => 'PersonasController@store'));
 
+
+//Route::get('damepreferencia/{id}', array('uses' => 'PreferenciasController@damepreferencia'));
+Route::get('/damepreferencia', array('uses' => 'PreferenciasController@damepreferencia'));
+
 //Procesa el formulario e identifica al usuario
 Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest']);
 //Desconecta al usuario
@@ -38,7 +42,8 @@ Route::get('/logout', ['uses' => 'AuthController@doLogout', 'before' => 'auth'])
 
 //Route::resource('personas', 'PersonasController');
 
-Route::group(array('before'=>'auth'), function() {   
+Route::group(array('before'=>'auth'), function() {
+	Route::resource('preferencias', 'PreferenciasController');   
     Route::resource('personas', 'PersonasController',
                 array('only' => array('index','show','create', 'update', 'destroy', 'edit')));
 });

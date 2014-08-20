@@ -10,13 +10,13 @@
 <body>
 	<div class="container">
 	    <div class="jumbotron">
-	        <h1>GettyImages Jackpot</h1>	        
+	        {{HTML::image('/img/gettyimages_jackpot.png', 'gettyimages_jackpot', array('width' =>'500'))}}
 	    </div>
 
 	    @yield('content')
 
 	    <div class="footer">
-	        <p>cristoweb</p>
+	        <p>GettyImages</p>
 	    </div>
 	</div>
     <script src="https://code.jquery.com/jquery.js"></script>

@@ -6,7 +6,11 @@
  
 @section('content')
 
-    {{HTML::link('game','Juego Jackpot',array('target'=>'_blank'))}}
+     <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+            <li> {{ HTML::link('game','Juego Jackpot',array('target'=>'_blank'))}}</li>
+        </ul>
+    </nav>
 
     <h2>Identificarse</h2>
  

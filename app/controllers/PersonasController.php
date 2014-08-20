@@ -11,7 +11,8 @@ class PersonasController extends \BaseController {
 	{
 		$personas = Persona::all();
 
-		return View::make('personas.index', compact('personas'));
+		return View::make('personas.index')
+			->with('personas', $personas);
 	}
 
 	/**
@@ -40,7 +41,7 @@ class PersonasController extends \BaseController {
 
 		Persona::create($data);
 
-		return Redirect::route('personas.index');
+		return Redirect::to('personas');
 	}
 
 	/**
@@ -53,7 +54,8 @@ class PersonasController extends \BaseController {
 	{
 		$persona = Persona::findOrFail($id);
 
-		return View::make('personas.show', compact('persona'));
+		return View::make('personas.show')
+			->with('persona', $persona);
 	}
 
 	/**
@@ -66,7 +68,8 @@ class PersonasController extends \BaseController {
 	{
 		$persona = Persona::find($id);
 
-		return View::make('personas.edit', compact('persona'));
+		return View::make('personas.edit')
+			->with('persona', $persona);
 	}
 
 	/**
@@ -88,7 +91,7 @@ class PersonasController extends \BaseController {
 
 		$persona->update($data);
 
-		return Redirect::route('personas.index');
+		return Redirect::route('personas');
 	}
 
 	/**
@@ -101,7 +104,7 @@ class PersonasController extends \BaseController {
 	{
 		Persona::destroy($id);
 
-		return Redirect::route('personas.index');
+		return Redirect::route('personas');
 	}
 
 }
